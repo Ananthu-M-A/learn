@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import ReUsableComponent from './ReUsableComponent';
+// import Counter from './Counter';
 
 function App() {
+
+  let data = [
+    {name: 'ANANTHU M A', email: 'ananthuma@gmail.com', color: 'skyblue'},
+    {name: 'SRUTHI V V', email: 'sruthivv@gmail.com', color: 'pink'},
+    {name: 'NAKUL V M', email: 'nakulvm@gmail.com', color: 'red'},
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        data.map((obj, index)=>
+          (
+            <ReUsableComponent key = {index} {...obj} />
+          )
+        )
+      }
     </div>
   );
 }
