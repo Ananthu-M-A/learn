@@ -1,23 +1,21 @@
-import ReUsableComponent from './ReUsableComponent';
-// import Counter from './Counter';
+import {useState} from 'react';
+import Counter from './Counter';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const plus = () => {
+    setCount(count + 1);
+  }
 
-  let data = [
-    {name: 'ANANTHU M A', email: 'ananthuma@gmail.com', color: 'skyblue'},
-    {name: 'SRUTHI V V', email: 'sruthivv@gmail.com', color: 'pink'},
-    {name: 'NAKUL V M', email: 'nakulvm@gmail.com', color: 'red'},
-  ]
+  const minus = () => {
+    setCount(count - 1);
+  }
 
   return (
-    <div>
-      {
-        data.map((obj, index)=>
-          (
-            <ReUsableComponent key = {index} {...obj} />
-          )
-        )
-      }
+    <div className="container-fluid text-center p-5">
+      <button className="btn border rounded-3 text-light bg-dark" onClick = {plus}> + </button>
+      <Counter count = {count} />
+      <button className="btn border rounded-3 text-light bg-dark" onClick = {minus}> - </button>
     </div>
   );
 }
